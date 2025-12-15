@@ -133,8 +133,8 @@ const AboutUs = () => {
                     <Phone className="w-5 h-5 text-primary" />
                   </div>
                   <h3 className="font-semibold mb-2">Phone</h3>
-                  <a href="tel:+27694683255" className="text-muted-foreground hover:text-primary transition-colors">
-                    069 468 3255
+                  <a href="tel:+27662733942" className="text-muted-foreground hover:text-primary transition-colors">
+                    +27 66 273 3942
                   </a>
                 </CardContent>
               </Card>
@@ -162,7 +162,7 @@ const AboutUs = () => {
               </Card>
             </div>
             <div className="flex justify-center">
-              <Button asChild size="lg" className="bg-gradient-to-r from-primary to-fuchsia hover:opacity-90">
+              <Button asChild size="lg" className="bg-gradient-to-r from-rose-gold to-rose-gold-light hover:opacity-90 gold-shimmer-effect text-white">
                 <a href="mailto:care@nannygold.co.za">Send Us a Message</a>
               </Button>
             </div>

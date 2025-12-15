@@ -1,18 +1,36 @@
 import { Button } from "@/components/ui/button";
 import { Menu, X, ExternalLink } from "lucide-react";
 import { useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const navigationItems = [
     { href: "#services", label: "Engagements" },
     { href: "#how-it-works", label: "How It Works" },
     { href: "#why-choose-us", label: "Why Choose Us" },
     { href: "#pricing", label: "Pricing" },
+    { href: "#coming-soon", label: "Coming Soon" },
     { href: "#for-nannies", label: "For Nannies" },
     { href: "#contact", label: "Contact" },
   ];
+
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    if (location.pathname !== "/") {
+      // If not on home page, navigate to home first, then scroll to section
+      navigate("/", { state: { scrollTo: href } });
+    } else {
+      // If already on home page, just scroll to section
+      const element = document.querySelector(href);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  };
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-gradient-hero shadow-lg">
@@ -20,10 +38,12 @@ const Header = () => {
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
           <div className="flex items-center">
-            <h1 className="text-2xl lg:text-3xl font-bold tracking-tight cursor-pointer">
-              <span className="text-orange-400 hover:text-orange-300 transition-colors duration-500">Nanny</span>
-              <span className="text-rose-400 hover:text-rose-300 transition-colors duration-500">Gold</span>
-            </h1>
+            <a href="/" onClick={(e) => { e.preventDefault(); navigate("/"); }}>
+              <h1 className="text-2xl lg:text-3xl font-bold tracking-tight cursor-pointer">
+                <span className="text-orange-400 hover:text-orange-300 transition-colors duration-500">Nanny</span>
+                <span className="text-rose-400 hover:text-rose-300 transition-colors duration-500">Gold</span>
+              </h1>
+            </a>
           </div>
 
           {/* Navigation Tabs */}
@@ -32,7 +52,8 @@ const Header = () => {
               <a
                 key={index}
                 href={item.href}
-                className="relative px-3 lg:px-4 py-2 text-sm lg:text-base font-medium text-white/90 hover:text-white transition-all duration-300 rounded-lg hover:bg-white/10 group"
+                onClick={(e) => handleNavClick(e, item.href)}
+                className="relative px-3 lg:px-4 py-2 text-sm lg:text-base font-medium text-white/90 hover:text-white transition-all duration-300 rounded-lg hover:bg-white/10 group cursor-pointer"
               >
                 {item.label}
                 <span className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-rose-gold transition-all duration-300 group-hover:w-3/4 transform -translate-x-1/2"></span>
@@ -77,8 +98,11 @@ const Header = () => {
                 <a
                   key={index}
                   href={item.href}
-                  onClick={() => setIsMenuOpen(false)}
-                  className="block px-4 py-3 text-sm font-medium text-white/80 hover:text-white hover:bg-white/10 rounded-lg transition-all duration-300"
+                  onClick={(e) => {
+                    setIsMenuOpen(false);
+                    handleNavClick(e, item.href);
+                  }}
+                  className="block px-4 py-3 text-sm font-medium text-white/80 hover:text-white hover:bg-white/10 rounded-lg transition-all duration-300 cursor-pointer"
                 >
                   {item.label}
                 </a>

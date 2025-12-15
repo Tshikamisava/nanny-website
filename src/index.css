@@ -28,13 +28,13 @@
     --fuchsia-dark: 320 100% 55%;
     
     /* Liquid Metallic Gold Elements */
-    --accent: 43 96% 56%;
+    --accent: 35 90% 52%;
     --accent-foreground: 0 0% 0%;
-    --rose-gold: 43 96% 56%;
-    --rose-gold-light: 48 100% 70%;
-    --rose-gold-medium: 45 98% 60%;
-    --rose-gold-dark: 38 85% 45%;
-    --rose-gold-deep: 32 75% 35%;
+    --rose-gold: 35 90% 52%;
+    --rose-gold-light: 36 92% 65%;
+    --rose-gold-medium: 34 88% 56%;
+    --rose-gold-dark: 32 85% 46%;
+    --rose-gold-deep: 28 80% 36%;
     
     /* Supporting Colors */
     --card: 0 0% 100%;
@@ -243,6 +243,64 @@
     animation: liquidMetallicShimmer 4s ease-in-out infinite;
     will-change: opacity;
   }
+
+  /* Gold Element Shimmer Effect */
+  .gold-shimmer-effect {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .gold-shimmer-effect::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.4),
+      transparent
+    );
+    animation: gold-shimmer 3s ease-in-out infinite;
+    pointer-events: none;
+    z-index: 1;
+    border-radius: inherit;
+  }
+
+  /* Auto-shimmer for gold backgrounds */
+  .bg-gradient-rose,
+  .bg-rose-gold {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .bg-gradient-rose::before,
+  .bg-rose-gold::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.35),
+      transparent
+    );
+    animation: gold-shimmer 3s ease-in-out infinite;
+    pointer-events: none;
+    z-index: 0;
+    border-radius: inherit;
+  }
+
+  .bg-gradient-rose > *,
+  .bg-rose-gold > * {
+    position: relative;
+    z-index: 1;
+  }
   
   /* Fuchsia Accent Elements */
   .fuchsia-accent {
@@ -359,6 +417,15 @@
   }
   100% {
     transform: translateX(120%);
+  }
+}
+
+@keyframes gold-shimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
   }
 }
 

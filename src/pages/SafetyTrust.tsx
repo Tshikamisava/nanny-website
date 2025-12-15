@@ -158,8 +158,8 @@ const SafetyTrust = () => {
                   We stand behind every nanny in our network. If you're ever unsatisfied with your care experience, we'll work to make it right – whether that means finding you a better match or addressing any concerns directly.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <Button asChild size="lg" className="bg-gradient-to-r from-primary to-fuchsia hover:opacity-90">
-                    <a href="tel:+27694683255">Contact Us: 069 468 3255</a>
+                  <Button asChild size="lg" className="bg-gradient-to-r from-rose-gold to-rose-gold-light hover:opacity-90 gold-shimmer-effect text-white">
+                    <a href="tel:+27662733942">Contact Us: +27 66 273 3942</a>
                   </Button>
                   <Button asChild variant="outline" size="lg">
                     <Link to="/about#contact">Learn More</Link>

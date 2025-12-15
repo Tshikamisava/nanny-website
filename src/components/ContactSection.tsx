@@ -29,33 +29,21 @@ const ContactSection = () => {
 
     setIsLoading(true);
 
-    try {
-      const response = await fetch('/functions/v1/send-contact-email', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
-
-      if (response.ok) {
-        toast({
-          title: "Message sent!",
-          description: "Thank you for contacting us. We'll get back to you soon.",
-        });
-        setFormData({ name: '', email: '', message: '' });
-      } else {
-        throw new Error('Failed to send message');
-      }
-    } catch (error) {
-      toast({
-        title: "Error",
-        description: "Failed to send message. Please try again or contact us directly.",
-        variant: "destructive",
-      });
-    } finally {
-      setIsLoading(false);
-    }
+    // Use mailto link to open email client
+    const subject = encodeURIComponent('Contact Form Submission from NannyGold Website');
+    const body = encodeURIComponent(
+      `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
+    );
+    
+    window.location.href = `mailto:care@nannygold.co.za?subject=${subject}&body=${body}`;
+    
+    toast({
+      title: "Opening email client...",
+      description: "Please send the email from your email client.",
+    });
+    
+    setFormData({ name: '', email: '', message: '' });
+    setIsLoading(false);
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -126,7 +114,7 @@ const ContactSection = () => {
                 type="submit"
                 size="lg"
                 disabled={isLoading}
-                className="btn-hero w-full"
+                className="btn-hero w-full gold-shimmer-effect"
               >
                 {isLoading ? "Sending..." : "Send Message"}
               </Button>
