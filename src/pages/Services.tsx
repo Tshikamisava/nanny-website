@@ -176,11 +176,11 @@ const Services = () => {
                   Every family is unique. If you have special requirements or need a customized care plan, we're here to create the perfect solution for you.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <Button asChild size="lg" className="bg-gradient-to-r from-primary to-fuchsia hover:opacity-90">
-                    <a href="tel:+27694683255">Call Us: 069 468 3255</a>
+                  <Button asChild size="lg" className="bg-gradient-to-r from-rose-gold to-rose-gold-light hover:opacity-90 gold-shimmer-effect text-white">
+                    <a href="tel:+27662733942">Call Us: +27 66 273 3942</a>
                   </Button>
                   <Button asChild variant="outline" size="lg">
-                    <a href="mailto:care@nannygold.co.za">Email Us</a>
+                    <a href="mailto:bespoke@nannygold.co.za">Email Us</a>
                   </Button>
                 </div>
               </CardContent>

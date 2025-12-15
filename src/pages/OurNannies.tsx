@@ -157,10 +157,10 @@ const OurNannies = () => {
                     We're always looking for caring, reliable professionals to join our team. Get in touch to start your application process.
                   </p>
                   <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                    <Button asChild size="lg" className="bg-gradient-to-r from-primary to-fuchsia hover:opacity-90">
-                      <a href="tel:+27694683255">
+                    <Button asChild size="lg" className="bg-gradient-to-r from-rose-gold to-rose-gold-light hover:opacity-90 gold-shimmer-effect text-white">
+                      <a href="tel:+27662733942">
                         <Phone className="w-4 h-4 mr-2" />
-                        Call: 069 468 3255
+                        Call: +27 66 273 3942
                       </a>
                     </Button>
                     <Button asChild variant="outline" size="lg">

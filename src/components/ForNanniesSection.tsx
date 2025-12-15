@@ -83,38 +83,6 @@ const ForNanniesSection = () => {
             })}
           </div>
         </div>
-
-        {/* Call to Action */}
-        <div className="mt-16 text-center">
-          <div className="bg-white/5 backdrop-blur-sm border border-white/20 rounded-2xl p-8 max-w-2xl mx-auto">
-            <h3 className="text-2xl font-bold text-white mb-4">
-              Ready to Join Our Community?
-            </h3>
-            <p className="text-white/80 mb-6">
-              Take the first step towards working with families who truly value professional childcare.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button 
-                asChild
-                variant="outline"
-                className="border-white text-white hover:bg-white hover:text-primary"
-              >
-                <a href="tel:+27662733942">
-                  Call Us: +27 66 273 3942
-                </a>
-              </Button>
-              <Button 
-                asChild
-                variant="outline"
-                className="border-white text-white hover:bg-white hover:text-primary"
-              >
-                <a href="mailto:care@nannygold.co.za">
-                  Email: care@nannygold.co.za
-                </a>
-              </Button>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
   );
