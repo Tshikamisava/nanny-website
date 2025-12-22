@@ -5,6 +5,7 @@ import { useToast } from "@/components/ui/use-toast";
 import { Phone, Mail, MessageCircle } from "lucide-react";
 import { useState } from "react";
 import MovingHighlight from "./MovingHighlight";
+import NannyGoldBrand from "./NannyGoldBrand";
 
 const ContactSection = () => {
   const { toast } = useToast();
@@ -185,7 +186,7 @@ const ContactSection = () => {
             <div className="p-6 bg-gradient-to-br from-primary to-primary-light rounded-2xl text-white">
               <h4 className="text-lg font-semibold mb-2">Ready to Get Started?</h4>
               <p className="text-white/90 mb-4">
-                Join hundreds of families who trust NannyGold for their childcare needs.
+                Join hundreds of families who trust <NannyGoldBrand size="md" className="inline-block" /> for their childcare needs.
               </p>
               <Button 
                 asChild

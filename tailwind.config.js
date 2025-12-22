@@ -86,6 +86,9 @@ export default {
         "gradient-fuchsia": "var(--gradient-fuchsia)",
         "gradient-metallic": "var(--gradient-metallic)",
       },
+      fontFamily: {
+        script: ['Dancing Script', 'cursive'],
+      },
     },
   },
   plugins: [

@@ -4,6 +4,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import NannyGoldBrand from "@/components/NannyGoldBrand";
 
 const vettingSteps = [
   {
@@ -84,7 +85,7 @@ const SafetyTrust = () => {
               Safety & <span className="gradient-text">Trust</span>
             </h1>
             <p className="text-xl text-white/90 max-w-2xl">
-              Your family's safety is our top priority. Discover the rigorous processes we follow to ensure every NannyGold caregiver is someone you can trust completely.
+              Your family's safety is our top priority. Discover the rigorous processes we follow to ensure every <NannyGoldBrand size="md" className="inline-block" /> caregiver is someone you can trust completely.
             </p>
           </div>
         </section>
@@ -153,7 +154,7 @@ const SafetyTrust = () => {
             <Card className="max-w-4xl mx-auto bg-gradient-to-br from-primary/10 to-fuchsia/10 border-primary/20">
               <CardContent className="p-8 text-center">
                 <Shield className="w-12 h-12 text-primary mx-auto mb-4" />
-                <h2 className="text-3xl font-bold mb-4">The NannyGold Trust Promise</h2>
+                <h2 className="text-3xl font-bold mb-4">The <NannyGoldBrand size="lg" className="inline-block" /> Trust Promise</h2>
                 <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
                   We stand behind every nanny in our network. If you're ever unsatisfied with your care experience, we'll work to make it right – whether that means finding you a better match or addressing any concerns directly.
                 </p>

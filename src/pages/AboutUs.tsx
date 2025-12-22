@@ -4,6 +4,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import NannyGoldBrand from "@/components/NannyGoldBrand";
 
 const values = [
   {
@@ -42,7 +43,7 @@ const AboutUs = () => {
               Back to Home
             </Link>
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              About <span className="gradient-text">NannyGold</span>
+              About <NannyGoldBrand size="xl" className="inline-block" />
             </h1>
             <p className="text-xl text-white/90 max-w-2xl">
               Connecting South African families with exceptional childcare since day one. We're more than a nanny service – we're your partner in parenting.
@@ -55,14 +56,18 @@ const AboutUs = () => {
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto">
               <h2 className="text-3xl font-bold mb-6 text-center">
-                Our <span className="gradient-text">Mission</span>
+                Our <span className="gradient-text">Guiding Mission</span>
               </h2>
-              <p className="text-lg text-muted-foreground text-center mb-8">
-                At NannyGold, we believe every family deserves access to trustworthy, professional childcare that adapts to their lifestyle. We're on a mission to transform how South African families find and manage their childcare needs – making it seamless, reliable, and stress-free.
-              </p>
               <Card className="bg-gradient-to-br from-primary/10 to-fuchsia/10 border-primary/20">
+                <CardContent className="p-8">
+                  <p className="text-lg text-muted-foreground text-center leading-relaxed">
+                    Children are at the heart of <NannyGoldBrand size="md" className="inline-block" />, receiving safe, loving, God-honoring care under their parents' wise stewardship. When the right nanny is meant for a family, parents find their way to our platform, ensuring a seamless match for any duration.
+                  </p>
+                </CardContent>
+              </Card>
+              <Card className="mt-6 bg-gradient-to-br from-primary/5 to-fuchsia/5 border-primary/20">
                 <CardContent className="p-8 text-center">
-                  <h3 className="text-2xl font-bold mb-4">The NannyGold Promise</h3>
+                  <h3 className="text-2xl font-bold mb-4">The <NannyGoldBrand size="lg" className="inline-block" /> Promise</h3>
                   <p className="text-muted-foreground">
                     From one-time emergencies to consistent, long-term support, we match you with vetted, trained, and trustworthy nannies who show up when you need them. It's care that works around your life, not the other way around.
                   </p>
@@ -106,15 +111,82 @@ const AboutUs = () => {
                 Our <span className="gradient-text">Story</span>
               </h2>
               <div className="prose prose-lg max-w-none text-muted-foreground">
-                <p className="mb-4">
-                  NannyGold was born from a simple frustration: finding reliable childcare in South Africa shouldn't be so hard. As parents ourselves, we experienced the anxiety of cancelled care, the stress of last-minute scrambles, and the challenge of finding someone we could truly trust with our children.
+                <p className="mb-4 text-lg leading-relaxed">
+                  <NannyGoldBrand size="md" className="inline-block" /> began from a parent's honest frustration—searching endlessly for the right nanny who truly cherishes children like a blessing from above. As parents ourselves, we experienced the anxiety of cancelled care, the stress of last-minute scrambles, and the challenge of finding someone we could truly trust with our children. Finding reliable childcare in South Africa shouldn't be so hard.
                 </p>
-                <p className="mb-4">
-                  We built NannyGold to be the solution we wished existed – a platform that combines technology with the human touch, rigorous vetting with genuine care, and flexibility with reliability.
+                <p className="mb-4 text-lg leading-relaxed">
+                  We turned that challenge into a heartfelt solution: connecting families with dedicated, faith-centered caregivers who provide God's intended care for each child's unique season of life. We built <NannyGoldBrand size="md" className="inline-block" /> to be the solution we wished existed – a platform that combines technology with the human touch, rigorous vetting with genuine care, and flexibility with reliability.
                 </p>
-                <p>
+                <p className="mb-8 text-lg leading-relaxed">
                   Today, we're proud to serve families across Johannesburg and beyond, providing peace of mind to parents who deserve to know their children are in the best hands possible.
                 </p>
+              </div>
+
+              {/* What Sets Us Apart */}
+              <div className="mt-10">
+                <h3 className="text-2xl font-bold mb-6 text-center">
+                  What Sets Us <span className="gradient-text">Apart</span>
+                </h3>
+                <div className="grid md:grid-cols-1 gap-6">
+                  <Card className="border-border/50 hover:border-primary/30 transition-colors">
+                    <CardContent className="p-6">
+                      <div className="flex items-start gap-4">
+                        <div className="p-3 rounded-xl bg-gradient-to-br from-primary/20 to-fuchsia/20 flex-shrink-0">
+                          <Heart className="w-6 h-6 text-primary" />
+                        </div>
+                        <div>
+                          <h4 className="text-xl font-semibold mb-2">From Frustration to Joy</h4>
+                          <p className="text-muted-foreground">
+                            We built an easy app for quick bookings, ongoing training, and purposeful connections that bring real peace.
+                          </p>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+
+                  <Card className="border-border/50 hover:border-primary/30 transition-colors">
+                    <CardContent className="p-6">
+                      <div className="flex items-start gap-4">
+                        <div className="p-3 rounded-xl bg-gradient-to-br from-primary/20 to-fuchsia/20 flex-shrink-0">
+                          <Users className="w-6 h-6 text-primary" />
+                        </div>
+                        <div>
+                          <h4 className="text-xl font-semibold mb-2">Caregivers with Purpose</h4>
+                          <p className="text-muted-foreground">
+                            Sourced thoughtfully from faith communities, our nannies bring genuine calling, skills like First-Aid and CPR, and nurturing expertise.
+                          </p>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+
+                  <Card className="border-border/50 hover:border-primary/30 transition-colors">
+                    <CardContent className="p-6">
+                      <div className="flex items-start gap-4">
+                        <div className="p-3 rounded-xl bg-gradient-to-br from-primary/20 to-fuchsia/20 flex-shrink-0">
+                          <Shield className="w-6 h-6 text-primary" />
+                        </div>
+                        <div>
+                          <h4 className="text-xl font-semibold mb-2">Support for Families</h4>
+                          <p className="text-muted-foreground">
+                            Everything—from matching to management—stays aligned with shared values for lasting trust.
+                          </p>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </div>
+              </div>
+
+              <div className="mt-10 text-center">
+                <p className="text-xl font-semibold text-primary mb-4">
+                  Discover the care your family deserves today.
+                </p>
+                <Button asChild size="lg" className="bg-gradient-to-r from-rose-gold to-rose-gold-light hover:opacity-90 gold-shimmer-effect text-white">
+                  <a href="https://app.nannygold.co.za" target="_blank" rel="noopener noreferrer">
+                    Get Started
+                  </a>
+                </Button>
               </div>
             </div>
           </div>

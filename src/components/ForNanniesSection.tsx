@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { DollarSign, Shield, HeartHandshake } from "lucide-react";
 import MovingHighlight from "./MovingHighlight";
+import NannyGoldBrand from "./NannyGoldBrand";
 
 const benefits = [
   {
@@ -37,13 +38,13 @@ const ForNanniesSection = () => {
           <div>
             <h2 className="text-4xl lg:text-5xl font-bold mb-6">
               Join the 
-              <MovingHighlight delay={800}> NannyGold Network</MovingHighlight>
+              <MovingHighlight delay={800}> <NannyGoldBrand size="xl" className="inline-block" /> Network</MovingHighlight>
             </h2>
             <p className="text-xl text-white/90 mb-8 leading-relaxed">
               Are you an experienced nanny looking for premium families who value your expertise?
             </p>
             <p className="text-lg text-white/80 mb-8">
-              At NannyGold, we connect trusted caregivers with households that respect and appreciate professional childcare.
+              At <NannyGoldBrand size="md" className="inline-block" />, we connect trusted caregivers with households that respect and appreciate professional childcare.
             </p>
 
             <Button 
