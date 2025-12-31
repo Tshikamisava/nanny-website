@@ -127,7 +127,7 @@ export default {
           'background-color': colors['rose-gold'],
         },
         '.text-fuchsia': {
-          color: colors.fuchsia,
+          color: colors.fuchsia?.DEFAULT || colors.fuchsia,
         },
       });
     },
