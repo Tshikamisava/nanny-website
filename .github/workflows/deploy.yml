@@ -35,8 +35,8 @@ jobs:
           server: ftp.nannygold.co.za
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          protocol: ftps        # use 'ftp' if ftps fails
+          protocol: ftps
+          security: explicit   # use 'explicit' for FTPS
           port: 21
-          local-dir: dist/       # Vite build output folder
+          local-dir: dist/    # folder must end with /
           server-dir: /public_html
-          passive: true
