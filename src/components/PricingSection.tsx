@@ -1,4 +1,3 @@
-import { Button } from "@/components/ui/button";
 import { Check, Info, Clock, Heart, Home, Calendar, Star } from "lucide-react";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";

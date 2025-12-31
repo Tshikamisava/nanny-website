@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/components/ui/use-toast";
 import { useState } from "react";
+import emailjs from "@emailjs/browser";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
@@ -18,6 +19,10 @@ const Contact = () => {
     phone: '',
     message: ''
   });
+
+  const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID || "service_md9r3cz";
+  const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_CONTACT_TEMPLATE_ID || "template_yew0tnm";
+  const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || "yAJUd3QrzTQPzilot";
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -33,21 +38,32 @@ const Contact = () => {
 
     setIsLoading(true);
 
-    // Use mailto link to open email client
-    const subject = encodeURIComponent('Contact Form Submission from NannyGold Website');
-    const body = encodeURIComponent(
-      `Name: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone || 'Not provided'}\n\nMessage:\n${formData.message}`
-    );
-    
-    window.location.href = `mailto:care@nannygold.co.za?subject=${subject}&body=${body}`;
-    
-    toast({
-      title: "Opening email client...",
-      description: "Please send the email from your email client.",
-    });
-    
-    setFormData({ name: '', email: '', phone: '', message: '' });
-    setIsLoading(false);
+    const sendPayload = {
+      from_name: formData.name,
+      from_email: formData.email,
+      phone: formData.phone || "Not provided",
+      message: formData.message,
+    };
+
+    console.log("EmailJS Config:", { SERVICE_ID, TEMPLATE_ID, PUBLIC_KEY });
+    console.log("Payload:", sendPayload);
+
+    try {
+      await emailjs.send(SERVICE_ID, TEMPLATE_ID, sendPayload, { publicKey: PUBLIC_KEY });
+      toast({
+        title: "Message sent!",
+        description: "Thank you for contacting us. We'll get back to you soon.",
+      });
+      setFormData({ name: '', email: '', phone: '', message: '' });
+    } catch {
+      toast({
+        title: "Error",
+        description: "Failed to send message. Please try again or contact us directly at care@nannygold.co.za",
+        variant: "destructive",
+      });
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
