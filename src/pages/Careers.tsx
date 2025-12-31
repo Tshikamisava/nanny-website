@@ -4,6 +4,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import NannyGoldBrand from "@/components/NannyGoldBrand";
 
 const benefits = [
   {
@@ -64,7 +65,7 @@ const Careers = () => {
           <div className="container mx-auto px-4">
             <div className="text-center mb-10">
               <h2 className="text-3xl font-bold mb-4">
-                Why Work at <span className="gradient-text">NannyGold</span>?
+                Why Work at <NannyGoldBrand size="lg" className="inline-block" />?
               </h2>
               <p className="text-muted-foreground max-w-2xl mx-auto">
                 We're a fast-growing startup with a mission to make quality childcare accessible to every family. Join us and be part of something meaningful.

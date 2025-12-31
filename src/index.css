@@ -118,6 +118,16 @@
   html {
     scroll-behavior: smooth;
   }
+  
+  .font-script {
+    font-family: 'Dancing Script', cursive;
+  }
+  
+  .font-nav {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.01em;
+  }
 }
 
 @layer components {
