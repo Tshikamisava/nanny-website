@@ -37,6 +37,6 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           protocol: ftps        # use 'ftp' if ftps fails
           port: 21
-          local-dir: dist       # Vite build output folder
+          local-dir: dist/       # Vite build output folder
           server-dir: /public_html
           passive: true
