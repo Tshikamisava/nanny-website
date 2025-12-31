@@ -1,13 +1,14 @@
 import { Phone, Mail, MapPin } from "lucide-react";
 import { Link } from "react-router-dom";
+import NannyGoldBrand from "./NannyGoldBrand";
 
 const Footer = () => {
 
   const companyLinks = [
-    { name: "About Us", to: "/about", description: "Learn about NannyGold's mission and values" },
+    { name: "About Us", to: "/about", description: "Learn about our mission and values" },
     { name: "Our Nannies", to: "/our-nannies", description: "Meet our vetted, trained nanny network" },
     { name: "Safety & Trust", to: "/safety-trust", description: "Our rigorous vetting and background checks" },
-    { name: "Careers", to: "/careers", description: "Join the NannyGold nanny network" },
+    { name: "Careers", to: "/careers", description: "Join our nanny network" },
     { name: "Contact", to: "/contact", description: "Get in touch with our team" },
   ];
 
@@ -18,7 +19,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-16 max-w-6xl mx-auto">
           {/* Brand & Description */}
           <div>
-            <h3 className="text-2xl font-bold gradient-text mb-4">NannyGold</h3>
+            <NannyGoldBrand size="lg" className="mb-4" />
             <p className="text-white/80 text-sm leading-relaxed max-w-xs">
               Connecting families with vetted, professional nannies for premium childcare services across South Africa.
             </p>
@@ -81,7 +82,7 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="border-t border-white/20 mt-10 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-white/60 text-sm">
-            © 2025 NannyGold. All rights reserved.
+            © 2025 <NannyGoldBrand size="sm" className="inline-block" />. All rights reserved.
           </p>
           <div className="flex gap-6 text-sm text-white/60 mt-4 md:mt-0">
             <a href="/privacy-policy" className="hover:text-rose-gold transition-colors">Privacy Policy</a>

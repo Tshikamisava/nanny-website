@@ -39,9 +39,9 @@ const Header = () => {
           {/* Logo */}
           <div className="flex items-center">
             <a href="/" onClick={(e) => { e.preventDefault(); navigate("/"); }}>
-              <h1 className="text-2xl lg:text-3xl font-bold tracking-tight cursor-pointer">
-                <span className="text-orange-400 hover:text-orange-300 transition-colors duration-500">Nanny</span>
-                <span className="text-rose-400 hover:text-rose-300 transition-colors duration-500">Gold</span>
+              <h1 className="text-2xl lg:text-3xl font-script font-semibold tracking-tight cursor-pointer" style={{ fontFamily: "'Dancing Script', cursive" }}>
+                <span className="text-fuchsia hover:text-fuchsia-light transition-colors duration-500">Nanny</span>
+                <span className="text-rose-gold hover:text-rose-gold-light transition-colors duration-500">Gold</span>
               </h1>
             </a>
           </div>
@@ -53,7 +53,7 @@ const Header = () => {
                 key={index}
                 href={item.href}
                 onClick={(e) => handleNavClick(e, item.href)}
-                className="relative px-3 lg:px-4 py-2 text-sm lg:text-base font-medium text-white/90 hover:text-white transition-all duration-300 rounded-lg hover:bg-white/10 group cursor-pointer"
+                className="relative px-3 lg:px-4 py-2 text-sm lg:text-base font-nav text-white/90 hover:text-white transition-all duration-300 rounded-lg hover:bg-white/10 group cursor-pointer"
               >
                 {item.label}
                 <span className="absolute bottom-0 left-1/2 w-0 h-0.5 bg-rose-gold transition-all duration-300 group-hover:w-3/4 transform -translate-x-1/2"></span>
@@ -63,7 +63,7 @@ const Header = () => {
 
           {/* Right Side Actions */}
           <div className="flex items-center space-x-4">
-            {/* Get Access Button */}
+            {/* Sign up / Sign in Button */}
             <Button 
               asChild
               className="hidden sm:inline-flex bg-rose-gold hover:bg-rose-gold-light text-white font-medium px-6 py-2 rounded-full hover:shadow-glow hover:scale-105 transition-all duration-300"
@@ -74,7 +74,7 @@ const Header = () => {
                 rel="noopener noreferrer"
                 className="flex items-center gap-2"
               >
-                Get Access
+                Sign up / Sign in
                 <ExternalLink size={16} />
               </a>
             </Button>
@@ -102,7 +102,7 @@ const Header = () => {
                     setIsMenuOpen(false);
                     handleNavClick(e, item.href);
                   }}
-                  className="block px-4 py-3 text-sm font-medium text-white/80 hover:text-white hover:bg-white/10 rounded-lg transition-all duration-300 cursor-pointer"
+                  className="block px-4 py-3 text-sm font-nav text-white/80 hover:text-white hover:bg-white/10 rounded-lg transition-all duration-300 cursor-pointer"
                 >
                   {item.label}
                 </a>
@@ -118,7 +118,7 @@ const Header = () => {
                     rel="noopener noreferrer"
                     className="flex items-center justify-center gap-2"
                   >
-                    Get Access
+                    Sign up / Sign in
                     <ExternalLink size={16} />
                   </a>
                 </Button>

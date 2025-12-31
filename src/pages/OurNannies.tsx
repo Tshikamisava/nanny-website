@@ -4,6 +4,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import NannyGoldBrand from "@/components/NannyGoldBrand";
 
 const qualities = [
   {
@@ -36,7 +37,9 @@ const trainingModules = [
   "Nutrition and meal preparation",
   "Positive discipline techniques",
   "Communication with parents",
-  "Special needs awareness"
+  "Special needs awareness",
+  "Record Keeping",
+  "Professional etiquette"
 ];
 
 const benefits = [
@@ -75,7 +78,7 @@ const OurNannies = () => {
               Our <span className="gradient-text">Nannies</span>
             </h1>
             <p className="text-xl text-white/90 max-w-2xl">
-              Meet the exceptional caregivers who make NannyGold special. Every nanny in our network is handpicked, trained, and committed to providing outstanding care.
+              Meet the exceptional caregivers who make <NannyGoldBrand size="md" className="inline-block" /> special. Every nanny in our network is handpicked, trained, and committed to providing outstanding care.
             </p>
           </div>
         </section>
@@ -114,7 +117,7 @@ const OurNannies = () => {
                 Our <span className="gradient-text">Training</span> Program
               </h2>
               <p className="text-center text-muted-foreground mb-10 max-w-2xl mx-auto">
-                Every NannyGold caregiver completes our comprehensive training program covering essential skills for exceptional childcare.
+                Every <NannyGoldBrand size="md" className="inline-block" /> caregiver completes our comprehensive training program covering essential skills for exceptional childcare.
               </p>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                 {trainingModules.map((module, idx) => (
@@ -133,7 +136,7 @@ const OurNannies = () => {
           <div className="container mx-auto px-4">
             <div className="max-w-4xl mx-auto">
               <h2 className="text-3xl font-bold mb-6 text-center">
-                Join the <span className="gradient-text">NannyGold Network</span>
+                Join the <NannyGoldBrand size="lg" className="inline-block" /> Network
               </h2>
               <p className="text-center text-muted-foreground mb-10 max-w-2xl mx-auto">
                 Are you a passionate, experienced nanny looking for rewarding opportunities? Join our network of exceptional caregivers and take your career to the next level.

@@ -1,5 +1,6 @@
 import { Shield, Star, Users, Heart } from "lucide-react";
 import MovingHighlight from "@/components/MovingHighlight";
+import NannyGoldBrand from "@/components/NannyGoldBrand";
 
 const features = [
   {
@@ -33,10 +34,10 @@ const WhyChooseUsSection = () => {
     <section id="why-choose-us" className="py-12 lg:py-20 bg-background">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-10 lg:mb-12">
-          <h2 className="text-4xl lg:text-5xl font-bold text-primary mb-6">
+          <h2 className="text-4xl lg:text-5xl font-bold text-primary mb-6 leading-tight pb-2">
             The <span className="gradient-text">
               <MovingHighlight delay={300}>
-                NannyGold Promise
+                <NannyGoldBrand size="xl" className="inline-block" /> Promise
               </MovingHighlight>
             </span>
           </h2>
