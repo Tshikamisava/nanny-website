@@ -39,4 +39,4 @@ jobs:
           security: loose       # use 'loose' on Domains.co.za
           port: 21
           local-dir: dist/      # must end with /
-          server-dir: /public_html
+          server-dir: /public_html/
