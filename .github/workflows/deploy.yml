@@ -1,39 +1,56 @@
-name: Deploy to Domains.co.za 
+name: 🚀 Deploy Website to Hostking
 
 on:
   push:
     branches:
-      - main
+      - main  # triggers deploy when you push to main branch
 
 jobs:
-  deploy:
+  build-and-deploy:
+    name: 📦 Build and Upload to Hostking
     runs-on: ubuntu-latest
 
+    env:
+      VITE_EMAILJS_SERVICE_ID: ${{ secrets.VITE_EMAILJS_SERVICE_ID }}
+      VITE_EMAILJS_TEMPLATE_ID: ${{ secrets.VITE_EMAILJS_TEMPLATE_ID }}
+      VITE_EMAILJS_PUBLIC_KEY: ${{ secrets.VITE_EMAILJS_PUBLIC_KEY }}
+
     steps:
-      - name: Checkout repository
+      - name: 📂 Checkout Repository
         uses: actions/checkout@v4
 
-      # If this is a Vite / React app
-      - name: Setup Node.js
+      - name: 🟢 Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: '18'
+          cache: 'npm'
 
-      - name: Install dependencies
-        run: npm install
+      - name: 📦 Install Dependencies
+        run: npm ci
 
-      - name: Build project
+      - name: 🔨 Build Project
         run: npm run build
 
-      # Deploy build files to public_html
-      - name: FTP Deploy to Domains.co.za
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+      - name: 📁 Deploy via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          port: 21
-          protocol: ftps
-          local-dir: dist/
+          port: ${{ secrets.FTP_PORT }}
+          protocol: ftp
+          local-dir: ./dist/           # Vite builds to dist folder
           server-dir: /public_html/
-          dangerous-clean-slate: true
+          exclude: |
+            **/.git*
+            **/.github*
+            **/node_modules/**
+            **/.env*
+            **/src/**
+            **/public/**
+            **/*.md
+            **/package*.json
+            **/vite.config.*
+            **/tsconfig.*
+            **/tailwind.config.*
+            **/eslint.config.*
