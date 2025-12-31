@@ -1,56 +1,42 @@
-name: 🚀 Deploy Website to Hostking
+name: Build and Deploy to Domains.co.za
 
 on:
   push:
     branches:
-      - main  # triggers deploy when you push to main branch
+      - main
 
 jobs:
   build-and-deploy:
-    name: 📦 Build and Upload to Hostking
     runs-on: ubuntu-latest
 
-    env:
-      VITE_EMAILJS_SERVICE_ID: ${{ secrets.VITE_EMAILJS_SERVICE_ID }}
-      VITE_EMAILJS_TEMPLATE_ID: ${{ secrets.VITE_EMAILJS_TEMPLATE_ID }}
-      VITE_EMAILJS_PUBLIC_KEY: ${{ secrets.VITE_EMAILJS_PUBLIC_KEY }}
-
     steps:
-      - name: 📂 Checkout Repository
+      # 1️⃣ Checkout code
+      - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: 🟢 Setup Node.js
+      # 2️⃣ Set up Node.js 22
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '22'
-          cache: 'npm'
+          node-version: 22
 
-      - name: 📦 Install Dependencies
-        run: npm ci
+      # 3️⃣ Install dependencies
+      - name: Install dependencies
+        run: npm install
 
-      - name: 🔨 Build Project
+      # 4️⃣ Build Vite project
+      - name: Build project
         run: npm run build
 
-      - name: 📁 Deploy via FTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+      # 5️⃣ Deploy via FTPS
+      - name: Deploy via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
-          server: ${{ secrets.FTP_SERVER }}
+          server: ftp.nannygold.co.za
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          
-          protocol: ftp
-          local-dir: ./dist/           # Vite builds to dist folder
-          server-dir: /public_html/
-          exclude: |
-            **/.git*
-            **/.github*
-            **/node_modules/**
-            **/.env*
-            **/src/**
-            **/public/**
-            **/*.md
-            **/package*.json
-            **/vite.config.*
-            **/tsconfig.*
-            **/tailwind.config.*
-            **/eslint.config.*
+          protocol: ftps        # use 'ftp' if ftps fails
+          port: 21
+          local-dir: dist       # Vite build output folder
+          server-dir: /public_html
+          passive: true
