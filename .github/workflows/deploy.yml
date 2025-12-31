@@ -28,15 +28,13 @@ jobs:
       - name: Build project
         run: npm run build
 
-      # 5️⃣ Deploy via FTPS
-      - name: Deploy via FTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+      # 5️⃣ Deploy via SFTP
+      - name: Deploy via SFTP
+        uses: appleboy/scp-action@v0.1.4
         with:
-          server: ftp.nannygold.co.za
+          host: ftp.nannygold.co.za
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          protocol: ftps
-          security: loose       # use 'loose' on Domains.co.za
-          port: 21
-          local-dir: dist/      # must end with /
-          server-dir: /public_html/
+          port: 22                # SFTP uses port 22
+          source: "dist/"
+          target: "/public_html/"
