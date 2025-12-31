@@ -36,7 +36,7 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           protocol: ftps
-          security: explicit   # use 'explicit' for FTPS
+          security: loose       # use 'loose' on Domains.co.za
           port: 21
-          local-dir: dist/    # folder must end with /
+          local-dir: dist/      # must end with /
           server-dir: /public_html
