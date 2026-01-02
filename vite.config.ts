@@ -5,6 +5,7 @@ import path from 'path'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
+  base: '/', // ✅ REQUIRED for www.nannygold.co.za
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
