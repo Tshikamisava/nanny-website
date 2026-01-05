@@ -46,16 +46,36 @@ const ContactSection = () => {
     console.log("Payload:", sendPayload);
 
     try {
-      await emailjs.send(SERVICE_ID, TEMPLATE_ID, sendPayload, { publicKey: PUBLIC_KEY });
+      // Initialize EmailJS with timeout and retry logic
+      const timeoutPromise = new Promise((_, reject) => {
+        setTimeout(() => reject(new Error('Request timeout')), 10000);
+      });
+
+      const emailPromise = emailjs.send(SERVICE_ID, TEMPLATE_ID, sendPayload, { 
+        publicKey: PUBLIC_KEY,
+        timeout: 8000
+      });
+
+      await Promise.race([emailPromise, timeoutPromise]);
+      
       toast({
         title: "Message sent!",
         description: "Thank you for contacting us. We'll get back to you soon.",
       });
       setFormData({ name: '', email: '', message: '' });
-    } catch {
+    } catch (error: any) {
+      console.error('EmailJS Error:', error);
+      let errorMessage = "Failed to send message. Please try again or contact us directly at care@nannygold.co.za";
+      
+      if (error.message === 'Request timeout') {
+        errorMessage = "Request timed out. Please check your connection and try again.";
+      } else if (error.text === 'INVALID_EMAIL') {
+        errorMessage = "Invalid email address. Please check and try again.";
+      }
+      
       toast({
         title: "Error",
-        description: "Failed to send message. Please try again or contact us directly at care@nannygold.co.za",
+        description: errorMessage,
         variant: "destructive",
       });
     } finally {
