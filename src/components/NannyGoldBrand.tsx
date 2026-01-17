@@ -26,8 +26,8 @@ const NannyGoldBrand = ({ className = "", size = "md", children }: NannyGoldBran
     >
       {children || (
         <>
-          <span style={{ color: '#FF1493' }}>Nanny</span>
-          <span style={{ color: '#FFD700' }}>Gold</span>
+          <span className="text-fuchsia">Nanny</span>
+          <span className="text-rose-gold gold-shimmer">Gold</span>
         </>
       )}
     </span>

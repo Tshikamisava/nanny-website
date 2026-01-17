@@ -246,12 +246,22 @@
   }
   
   .gold-shimmer {
-    background: linear-gradient(135deg, hsl(var(--rose-gold)), hsl(var(--pink-medium)), hsl(var(--rose-gold)));
+    background: linear-gradient(135deg, hsl(var(--rose-gold)), hsl(var(--rose-gold-light)), hsl(var(--rose-gold)), hsl(var(--rose-gold-light)));
+    background-size: 200% 100%;
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: liquidMetallicShimmer 4s ease-in-out infinite;
-    will-change: opacity;
+    animation: goldShimmer 3s ease-in-out infinite;
+    will-change: background-position;
+  }
+  
+  @keyframes goldShimmer {
+    0%, 100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
   }
 
   /* Gold Element Shimmer Effect */

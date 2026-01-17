@@ -8,7 +8,11 @@ const services = [{
   description: "Last-minute childcare when you need it most",
   price: "From R80/hour",
   gradient: "from-rose-500 to-pink-600",
-  features: ["24/7 availability", "Minimum 5 hours", "Immediate response"]
+  features: [
+    { text: "Available within 3 business Hrs", hasTooltip: true, tooltipText: "Subject to location and availability" },
+    "Minimum 5 hours",
+    "Immediate response"
+  ]
 }, {
   icon: Heart,
   title: "Date Night Care",
@@ -22,14 +26,14 @@ const services = [{
   description: "Regular daytime childcare for working parents",
   price: "From R40/hour",
   gradient: "from-blue-500 to-indigo-600",
-  features: ["Flexible hours", "Educational activities", "Meal preparation"]
+  features: ["Flexible hours", "Age-appropriate play", "Supervised activities"]
 }, {
   icon: Calendar,
   title: "Gap Coverage",
   description: "Short-term coverage for school holidays or nanny leave",
-  price: "From R280/day",
+  price: "From R160/day",
   gradient: "from-cyan-500 to-teal-600",
-  features: ["5+ consecutive days", "Full day coverage", "No service fee"]
+  features: ["From 10+ consecutive days", "Full day coverage", "Pro-Rata Monthly Fee"]
 }, {
   icon: Star,
   title: "Long-term Care",
@@ -56,32 +60,54 @@ const PricingSection = () => {
         </div>
 
         {/* Service Cards Grid */}
-        <div className="max-w-6xl mx-auto mb-12">
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {services.map((service, index) => {
-            const Icon = service.icon;
-            return <Card key={index} className="hover:shadow-lg transition-shadow duration-300">
-                  <CardHeader>
-                    <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${service.gradient} flex items-center justify-center mb-4`}>
-                      <Icon className="w-8 h-8 text-white" />
-                    </div>
-                    <CardTitle className="text-xl mb-2">{service.title}</CardTitle>
-                    <CardDescription className="text-base">{service.description}</CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-2xl font-bold text-primary mb-4">{service.price}</p>
-                    <ul className="space-y-2">
-                      {service.features.map((feature, idx) => <li key={idx} className="flex items-center gap-2 text-sm text-muted-foreground">
-                          <Check className="w-4 h-4 text-primary flex-shrink-0" />
-                          <span>{feature}</span>
-                        </li>)}
-                    </ul>
-                  </CardContent>
-                </Card>;
-          })}
+        <TooltipProvider>
+          <div className="max-w-6xl mx-auto mb-12">
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {services.map((service, index) => {
+              const Icon = service.icon;
+              return <Card key={index} className="hover:shadow-lg transition-shadow duration-300">
+                    <CardHeader>
+                      <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${service.gradient} flex items-center justify-center mb-4`}>
+                        <Icon className="w-8 h-8 text-white" />
+                      </div>
+                      <CardTitle className="text-xl mb-2">{service.title}</CardTitle>
+                      <CardDescription className="text-base">{service.description}</CardDescription>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-2xl font-bold text-primary mb-4">{service.price}</p>
+                      <ul className="space-y-2">
+                        {service.features.map((feature, idx) => {
+                          const featureText = typeof feature === 'string' ? feature : feature.text;
+                          const hasTooltip = typeof feature === 'object' && feature.hasTooltip;
+                          const tooltipText = typeof feature === 'object' ? feature.tooltipText : '';
+                          
+                          return <li key={idx} className="flex items-center gap-2 text-sm text-muted-foreground">
+                            <Check className="w-4 h-4 text-primary flex-shrink-0" />
+                            {hasTooltip ? (
+                              <Tooltip>
+                                <TooltipTrigger asChild>
+                                  <span className="flex items-center gap-1 cursor-help">
+                                    <span>{featureText}</span>
+                                    <Info className="w-3 h-3 text-primary" />
+                                  </span>
+                                </TooltipTrigger>
+                                <TooltipContent>
+                                  <p className="text-sm">{tooltipText}</p>
+                                </TooltipContent>
+                              </Tooltip>
+                            ) : (
+                              <span>{featureText}</span>
+                            )}
+                          </li>;
+                        })}
+                      </ul>
+                    </CardContent>
+                  </Card>;
+            })}
+            </div>
           </div>
-        </div>
+        </TooltipProvider>
 
         <div className="max-w-4xl mx-auto text-center">
           <div className="mb-12">
