@@ -8,7 +8,6 @@ import {
   getUserDetails,
   getClients,
   getNannies,
-  type User,
 } from '@/services/adminApi';
 
 // Query keys
