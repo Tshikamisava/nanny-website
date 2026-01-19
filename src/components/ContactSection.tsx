@@ -52,8 +52,7 @@ const ContactSection = () => {
       });
 
       const emailPromise = emailjs.send(SERVICE_ID, TEMPLATE_ID, sendPayload, { 
-        publicKey: PUBLIC_KEY,
-        timeout: 8000
+        publicKey: PUBLIC_KEY
       });
 
       await Promise.race([emailPromise, timeoutPromise]);

@@ -16,7 +16,7 @@ const ComingSoonSection = () => {
     {
       icon: Plane,
       title: "AuPairGold",
-      description: "International au pair placement services, connecting families with qualified au pairs for cultural exchange and childcare.",
+      description: "Local au pair placement services, connecting South African families with qualified au pairs for cultural exchange and childcare.",
     },
     {
       icon: Heart,
