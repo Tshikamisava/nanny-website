@@ -15,6 +15,10 @@ import OurNannies from "./pages/OurNannies";
 import SafetyTrust from "./pages/SafetyTrust";
 import Contact from "./pages/Contact";
 import Careers from "./pages/Careers";
+import AdminDashboard from "./pages/admin/AdminDashboard";
+import ClientManagement from "./pages/admin/ClientManagement";
+import NannyManagement from "./pages/admin/NannyManagement";
+import MatchResults from "./pages/MatchResults";
 
 const queryClient = new QueryClient();
 
@@ -36,6 +40,11 @@ const App = () => (
           <Route path="/safety-trust" element={<SafetyTrust />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/careers" element={<Careers />} />
+          {/* Admin Routes */}
+          <Route path="/admin" element={<AdminDashboard />} />
+          <Route path="/admin/client-management" element={<ClientManagement />} />
+          <Route path="/admin/nanny-management" element={<NannyManagement />} />
+          <Route path="/match-results" element={<MatchResults />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
