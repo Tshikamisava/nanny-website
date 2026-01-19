@@ -10,7 +10,7 @@ const values = [
   {
     icon: Shield,
     title: "Safety First",
-    description: "Every nanny undergoes rigorous background checks, reference verification, and ongoing monitoring to ensure your family's safety."
+    description: "Every nanny undergoes rigorous background checks, reference verification and ongoing monitoring to ensure your family's safety."
   },
   {
     icon: Heart,
